@@ -5,5 +5,5 @@
 [node name="playground" type="Node2D" unique_id=1017850808]
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=374361835]
-position = Vector2(537, 345)
+position = Vector2(239, 128)
 texture = ExtResource("1_hddm4")
