@@ -18,7 +18,7 @@ func exit() -> void:
 # What happens when input is pressed?
 # Returns the state that the player should switch to (or stay in)
 func handle_input( _event : InputEvent ) -> PlayerState:
-	if _event.is_action_pressed("jump") && player.is_on_floor():
+	if _event.is_action_pressed("jump"):
 		return jump
 	return next_state
 

@@ -6,6 +6,8 @@ const DEBUG_INDICATOR = preload("uid://7s2m781vfrmb")
 @export var jump_velocity : float  = -500
 @export var air_speed_multiplier : float = 1
 @export var variable_jump_release_multiplier : float = 0.5
+@export var coyote_time : float = 0.12
+@export var jump_buffer : float = 0.2
 
 @export var run_speed : float = 100
 @export var run_accel_time : float = .3
@@ -43,9 +45,9 @@ func _process(_delta: float) -> void:
 	pass
 
 
-func _physics_process(_delta: float) -> void:
-	velocity.y += gravity * _delta
-	change_state(current_state.physics_process(_delta))
+func _physics_process(delta: float) -> void:
+	velocity.y += gravity * delta
+	change_state(current_state.physics_process(delta))
 	move_and_slide()
 	pass
 

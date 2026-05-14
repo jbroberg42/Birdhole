@@ -1,5 +1,7 @@
 class_name PlayerStateJump extends PlayerState
 
+var jump_buffer_timer : float = 0
+
 # What happens when this state is initialized?
 func init() -> void:
 	pass
@@ -22,17 +24,23 @@ func exit() -> void:
 func handle_input( event : InputEvent ) -> PlayerState:
 	if event.is_action_released("jump"):
 		return fall
+	if event.is_action_pressed("jump"):
+		jump_buffer_timer = player.jump_buffer
 	return next_state
 
 
 # What happens each process tick in this state?
-func process(_delta: float) -> PlayerState:
+func process(delta: float) -> PlayerState:
+	jump_buffer_timer -= delta
 	return next_state
 
 
 # What happens each physics tick in this state?
 func physics_process(_delta: float) -> PlayerState:
 	player.velocity.x = player.direction.x * player.run_speed * player.air_speed_multiplier
-	if player.velocity.y >= 0:
+	if player.is_on_floor():
+		if jump_buffer_timer > 0:
+			return jump
+	elif player.velocity.y >= 0:
 		return fall
 	return next_state
