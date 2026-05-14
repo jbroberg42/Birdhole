@@ -1,33 +1,17 @@
-@icon("res://player/states/state.svg")
-class_name PlayerState extends Node
-
-var player : Player
-var next_state : PlayerState
-
-#region /// state references
-# reference to all other states
-@onready var idle: PlayerStateIdle = %Idle
-@onready var run: PlayerStateRun = %Run
-@onready var jump: PlayerStateJump = %Jump
-@onready var fall: PlayerStateFall = %Fall
-#endregion
-
+class_name PlayerStateFall extends PlayerState
 
 # What happens when this state is initialized?
 func init() -> void:
-	print ("init: ", name)
 	pass
 
 
 # What happens when we enter this state?
 func enter() -> void:
-	print ("enter: ", name)
 	pass
 
 
 # What happens when we exit this state?
 func exit() -> void:
-	print ("exit: ", name)
 	pass
 
 
@@ -44,4 +28,7 @@ func process(_delta: float) -> PlayerState:
 
 # What happens each process tick in this state?
 func physics_process(_delta: float) -> PlayerState:
+	player.velocity.x = player.direction.x * player.run_speed * player.air_speed_multiplier
+	if player.is_on_floor():
+		return idle
 	return next_state
