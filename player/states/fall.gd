@@ -11,6 +11,7 @@ func init() -> void:
 # What happens when we enter this state?
 func enter() -> void:
 	player.add_debug_indicator(Color.CORAL)
+	player.gravity_multiplier = player.fall_gravity_multiplier
 	if player.velocity.y <= 0:
 		player.velocity.y = player.velocity.y * player.variable_jump_release_multiplier
 	
@@ -23,6 +24,7 @@ func enter() -> void:
 # What happens when we exit this state?
 func exit() -> void:
 	player.add_debug_indicator()
+	player.gravity_multiplier = 1.0
 	pass
 
 

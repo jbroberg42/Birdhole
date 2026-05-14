@@ -14,6 +14,7 @@ size = Vector2(9, 48)
 
 [node name="Player" type="CharacterBody2D" unique_id=353596438]
 script = ExtResource("1_oul6g")
+fall_gravity_multiplier = 1.5
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=945643504]
 position = Vector2(0, -24)

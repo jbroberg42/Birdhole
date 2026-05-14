@@ -8,6 +8,7 @@ const DEBUG_INDICATOR = preload("uid://7s2m781vfrmb")
 @export var variable_jump_release_multiplier : float = 0.5
 @export var coyote_time : float = 0.12
 @export var jump_buffer : float = 0.2
+@export var fall_gravity_multiplier = 1.165
 
 @export var run_speed : float = 100
 @export var run_accel_time : float = .3
@@ -25,6 +26,7 @@ var previous_state : PlayerState :
 #region /// standard variables
 var direction : Vector2 = Vector2.ZERO
 var gravity : float = 980
+var gravity_multiplier : float = 1.0
 #endregion
 
 
@@ -46,7 +48,7 @@ func _process(_delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
-	velocity.y += gravity * delta
+	velocity.y += gravity * gravity_multiplier * delta
 	change_state(current_state.physics_process(delta))
 	move_and_slide()
 	pass
