@@ -1,7 +1,12 @@
 class_name Player extends CharacterBody2D
 
 #region /// Export Variables
-@export var move_speed = 100
+@export var jump_velocity : float  = -500
+@export var air_speed_multiplier : float = 1
+
+@export var run_speed : float = 100
+@export var run_accel_time : float = .3
+@export var run_decel_time : float = .3
 #endregion
 
 #region /// State Machine Variables
@@ -50,7 +55,6 @@ func initialize_states() -> void:
 			states.append(c)
 			c.player = self
 		pass
-	print(states)
 	
 	if states.size() == 0:
 		return
