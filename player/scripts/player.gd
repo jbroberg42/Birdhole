@@ -5,6 +5,7 @@ const DEBUG_INDICATOR = preload("uid://7s2m781vfrmb")
 #region /// Export Variables
 @export var jump_velocity : float  = -500
 @export var air_speed_multiplier : float = 1
+@export var variable_jump_release_multiplier : float = 0.5
 
 @export var run_speed : float = 100
 @export var run_accel_time : float = .3

@@ -19,7 +19,9 @@ func exit() -> void:
 
 # What happens when input is pressed?
 # Returns the state that the player should switch to (or stay in)
-func handle_input( _event : InputEvent ) -> PlayerState:
+func handle_input( event : InputEvent ) -> PlayerState:
+	if event.is_action_released("jump"):
+		return fall
 	return next_state
 
 

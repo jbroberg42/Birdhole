@@ -8,6 +8,8 @@ func init() -> void:
 # What happens when we enter this state?
 func enter() -> void:
 	player.add_debug_indicator(Color.CORAL)
+	if player.velocity.y <= 0:
+		player.velocity.y = player.velocity.y * player.variable_jump_release_multiplier
 	pass
 
 
