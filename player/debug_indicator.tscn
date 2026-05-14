@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://7s2m781vfrmb"]
+
+[sub_resource type="Gradient" id="Gradient_qjkh3"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g6k8r"]
+gradient = SubResource("Gradient_qjkh3")
+width = 5
+height = 5
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(2, 0)
+
+[sub_resource type="Gradient" id="Gradient_s3q3t"]
+offsets = PackedFloat32Array(0.018072288, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_150q1"]
+gradient = SubResource("Gradient_s3q3t")
+width = 12
+height = 1
+
+[node name="debug_indicator" type="Node2D" unique_id=1734435902]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=907511531]
+texture = SubResource("GradientTexture2D_g6k8r")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1933266892]
+self_modulate = Color(1, 1, 1, 0.7529412)
+texture = SubResource("GradientTexture2D_150q1")

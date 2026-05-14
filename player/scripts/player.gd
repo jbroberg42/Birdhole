@@ -1,5 +1,7 @@
 class_name Player extends CharacterBody2D
 
+const DEBUG_INDICATOR = preload("uid://7s2m781vfrmb")
+
 #region /// Export Variables
 @export var jump_velocity : float  = -500
 @export var air_speed_multiplier : float = 1
@@ -98,4 +100,13 @@ func update_direction() -> void:
 	#var y_axis = Input.get_axis("jump", "down")
 	#direction = Vector2(x_axis, y_axis)
 	direction = Input.get_vector("left", "right", "up", "down")
+	pass
+	
+func add_debug_indicator(color : Color = Color.RED) -> void:
+	var d : Node2D = DEBUG_INDICATOR.instantiate()
+	get_tree().root.add_child(d)
+	d.global_position = global_position
+	d.modulate = color
+	await get_tree().create_timer(3.0).timeout
+	d.queue_free()
 	pass

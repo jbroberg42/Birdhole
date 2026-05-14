@@ -7,11 +7,13 @@ func init() -> void:
 
 # What happens when we enter this state?
 func enter() -> void:
+	player.add_debug_indicator(Color.CORAL)
 	pass
 
 
 # What happens when we exit this state?
 func exit() -> void:
+	player.add_debug_indicator()
 	pass
 
 

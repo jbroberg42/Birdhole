@@ -16,9 +16,11 @@ size = Vector2(9, 48)
 script = ExtResource("1_oul6g")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=945643504]
+position = Vector2(0, -24)
 texture = SubResource("PlaceholderTexture2D_kqu6x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=503938568]
+position = Vector2(0, -24)
 shape = SubResource("RectangleShape2D_oul6g")
 
 [node name="States" type="Node" parent="." unique_id=505325432]
@@ -40,5 +42,10 @@ unique_name_in_owner = true
 script = ExtResource("5_g6k8r")
 
 [node name="Label" type="Label" parent="." unique_id=1688887284]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = -19.0
+offset_top = -72.0
+offset_right = 21.0
+offset_bottom = -49.0
+text = "debug"
+horizontal_alignment = 1
+vertical_alignment = 1
