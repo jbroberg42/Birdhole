@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://713n764c6btj" path="res://player/states/run.gd" id="3_yw30f"]
 [ext_resource type="Script" uid="uid://tasnty05yar8" path="res://player/states/jump.gd" id="4_qjkh3"]
 [ext_resource type="Script" uid="uid://dqcpch3q535lx" path="res://player/states/fall.gd" id="5_g6k8r"]
+[ext_resource type="Script" uid="uid://c0edmwy6rmhqx" path="res://player/states/crouch.gd" id="6_g6k8r"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_kqu6x"]
 size = Vector2(18, 48)
@@ -12,17 +13,30 @@ size = Vector2(18, 48)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oul6g"]
 size = Vector2(9, 48)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g6k8r"]
+size = Vector2(9, 24)
+
 [node name="Player" type="CharacterBody2D" unique_id=353596438]
+collision_layer = 0
+collision_mask = 3
 script = ExtResource("1_oul6g")
+variable_jump_release_multiplier = 0.0
 fall_gravity_multiplier = 1.5
+crouch_speed_multiplier = 0.0
+run_speed = 150.0
+run_decel_multiplier = 100.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=945643504]
 position = Vector2(0, -24)
 texture = SubResource("PlaceholderTexture2D_kqu6x")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=503938568]
+[node name="CollisionStand" type="CollisionShape2D" parent="." unique_id=503938568]
 position = Vector2(0, -24)
 shape = SubResource("RectangleShape2D_oul6g")
+
+[node name="CollisionCrouch" type="CollisionShape2D" parent="." unique_id=1042860184]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_g6k8r")
 
 [node name="States" type="Node" parent="." unique_id=505325432]
 
@@ -41,6 +55,10 @@ script = ExtResource("4_qjkh3")
 [node name="Fall" type="Node" parent="States" unique_id=234293464]
 unique_name_in_owner = true
 script = ExtResource("5_g6k8r")
+
+[node name="Crouch" type="Node" parent="States" unique_id=1015582833]
+unique_name_in_owner = true
+script = ExtResource("6_g6k8r")
 
 [node name="Label" type="Label" parent="." unique_id=1688887284]
 offset_left = -19.0

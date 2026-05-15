@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cwtxpbxyy1dhf"]
 
 [ext_resource type="PackedScene" uid="uid://bjfam45vyjgmt" path="res://player/player.tscn" id="1_hddm4"]
+[ext_resource type="PackedScene" uid="uid://bjkefqtq0wa2b" path="res://scenes/one_way_platform.tscn" id="1_qchbg"]
 
 [sub_resource type="Gradient" id="Gradient_maef2"]
 offsets = PackedFloat32Array(0.006024096, 1)
@@ -33,7 +34,7 @@ shape = SubResource("RectangleShape2D_qchbg")
 shape = SubResource("RectangleShape2D_qchbg")
 
 [node name="Sprite2D4" type="Sprite2D" parent="." unique_id=830574428]
-position = Vector2(222, 166)
+position = Vector2(300.5, 251)
 texture = SubResource("GradientTexture2D_hddm4")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D4" unique_id=1117837280]
@@ -44,8 +45,11 @@ shape = SubResource("RectangleShape2D_qchbg")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Sprite2D4/StaticBody2D" unique_id=1738510483]
 shape = SubResource("RectangleShape2D_qchbg")
 
+[node name="one_way_platform" parent="." unique_id=261677667 instance=ExtResource("1_qchbg")]
+position = Vector2(290, 179)
+
 [node name="Sprite2D5" type="Sprite2D" parent="." unique_id=145296142]
-position = Vector2(325, 226.99998)
+position = Vector2(403.5, 312)
 rotation = -0.4171972
 scale = Vector2(5.6536655, 1)
 texture = SubResource("GradientTexture2D_hddm4")
@@ -59,7 +63,7 @@ shape = SubResource("RectangleShape2D_qchbg")
 shape = SubResource("RectangleShape2D_qchbg")
 
 [node name="Sprite2D3" type="Sprite2D" parent="." unique_id=312753668]
-position = Vector2(90, 229)
+position = Vector2(168.49998, 314)
 scale = Vector2(2.8125, 1)
 texture = SubResource("GradientTexture2D_qchbg")
 
@@ -69,7 +73,7 @@ texture = SubResource("GradientTexture2D_qchbg")
 shape = SubResource("RectangleShape2D_qchbg")
 
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=678746495]
-position = Vector2(238.00002, 260)
+position = Vector2(316.5, 345)
 scale = Vector2(15.71875, 1)
 texture = SubResource("GradientTexture2D_hddm4")
 

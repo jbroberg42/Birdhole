@@ -2,6 +2,12 @@ class_name Player extends CharacterBody2D
 
 const DEBUG_INDICATOR = preload("uid://7s2m781vfrmb")
 
+#region /// onready variables
+@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var collision_stand: CollisionShape2D = $CollisionStand
+@onready var collision_crouch: CollisionShape2D = $CollisionCrouch
+#endregion
+
 #region /// Export Variables
 @export var jump_velocity : float  = -500
 @export var air_speed_multiplier : float = 1
@@ -9,10 +15,11 @@ const DEBUG_INDICATOR = preload("uid://7s2m781vfrmb")
 @export var coyote_time : float = 0.12
 @export var jump_buffer : float = 0.2
 @export var fall_gravity_multiplier = 1.165
+@export var crouch_speed_multiplier = 0.5
 
 @export var run_speed : float = 100
 @export var run_accel_time : float = .3
-@export var run_decel_time : float = .3
+@export var run_decel_multiplier : float = .3
 #endregion
 
 #region /// State Machine Variables
@@ -33,6 +40,8 @@ var gravity_multiplier : float = 1.0
 func _ready() -> void:
 	# initialize states
 	initialize_states()
+	collision_stand.disabled = false
+	collision_crouch.disabled = true
 	pass
 
 
@@ -41,9 +50,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	pass
 
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	update_direction()
-	change_state(current_state.process(_delta))
+	change_state(current_state.process(delta))
 	pass
 
 
