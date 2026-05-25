@@ -18,7 +18,7 @@ const DEBUG_INDICATOR = preload("uid://7s2m781vfrmb")
 @export var fall_gravity_multiplier = 1.165
 
 @export var run_speed : float = 150
-@export var run_accel_time : float = .3
+@export var run_accel : float = 20
 @export var run_decel : float = 20
 #endregion
 

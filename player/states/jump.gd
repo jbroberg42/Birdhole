@@ -37,7 +37,7 @@ func process(delta: float) -> PlayerState:
 
 # What happens each physics tick in this state?
 func physics_process(_delta: float) -> PlayerState:
-	player.velocity.x = player.direction.x * player.run_speed * player.air_speed_multiplier
+	player.velocity.x = move_toward(player.velocity.x, (player.direction.x * player.run_speed), player.run_accel)
 	if player.is_on_floor():
 		if jump_buffer_timer > 0:
 			return jump
