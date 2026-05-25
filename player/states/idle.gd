@@ -35,5 +35,5 @@ func process(_delta: float) -> PlayerState:
 
 # What happens each process tick in this state?
 func physics_process(delta: float) -> PlayerState:
-	player.velocity.x = 0
+	player.velocity.x = move_toward(player.velocity.x, 0, player.run_decel)
 	return next_state

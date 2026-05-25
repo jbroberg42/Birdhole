@@ -16,11 +16,10 @@ const DEBUG_INDICATOR = preload("uid://7s2m781vfrmb")
 @export var coyote_time : float = 0.12
 @export var jump_buffer : float = 0.2
 @export var fall_gravity_multiplier = 1.165
-@export var crouch_speed_multiplier = 0.5
 
-@export var run_speed : float = 100
+@export var run_speed : float = 150
 @export var run_accel_time : float = .3
-@export var run_decel_multiplier : float = .3
+@export var run_decel : float = 20
 #endregion
 
 #region /// State Machine Variables
