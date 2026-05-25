@@ -11,6 +11,11 @@ func init() -> void:
 func enter() -> void:
 	player.add_debug_indicator(Color.GREEN)
 	player.velocity.y = player.jump_velocity
+	
+	# check if this is a jump buffer jump that has already been release.
+	# if so, change to fall state
+	if player.previous_state == fall and not Input.is_action_pressed("jump"):
+		player.change_state( fall )
 	pass
 
 

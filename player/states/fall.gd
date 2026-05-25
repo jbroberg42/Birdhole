@@ -25,6 +25,7 @@ func enter() -> void:
 func exit() -> void:
 	player.add_debug_indicator()
 	player.gravity_multiplier = 1.0
+	jump_buffer_timer = 0
 	pass
 
 
