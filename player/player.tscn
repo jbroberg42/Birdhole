@@ -159,10 +159,6 @@ text = "debug"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="OneWayPlatformRaycast" type="RayCast2D" parent="." unique_id=500282324]
-target_position = Vector2(0, 4)
-collision_mask = 2
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1018987667]
 libraries/ = SubResource("AnimationLibrary_yllr7")
 autoplay = &"idle"
