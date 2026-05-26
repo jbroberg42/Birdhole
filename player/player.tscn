@@ -8,11 +8,13 @@
 [ext_resource type="Script" uid="uid://dqcpch3q535lx" path="res://player/states/fall.gd" id="5_g6k8r"]
 [ext_resource type="Script" uid="uid://c0edmwy6rmhqx" path="res://player/states/crouch.gd" id="6_g6k8r"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_oul6g"]
-size = Vector2(9, 48)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_boad6"]
+radius = 8.0
+height = 48.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g6k8r"]
-size = Vector2(9, 24)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rgyib"]
+radius = 8.0
+height = 26.0
 
 [sub_resource type="Animation" id="Animation_rgyib"]
 length = 0.001
@@ -104,6 +106,9 @@ _data = {
 &"run": SubResource("Animation_ebec5")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_boad6"]
+size = Vector2(16, 3)
+
 [node name="Player" type="CharacterBody2D" unique_id=353596438]
 collision_layer = 0
 collision_mask = 3
@@ -117,11 +122,11 @@ vframes = 4
 
 [node name="CollisionStand" type="CollisionShape2D" parent="." unique_id=503938568]
 position = Vector2(0, -24)
-shape = SubResource("RectangleShape2D_oul6g")
+shape = SubResource("CapsuleShape2D_boad6")
 
 [node name="CollisionCrouch" type="CollisionShape2D" parent="." unique_id=1042860184]
-position = Vector2(0, -12)
-shape = SubResource("RectangleShape2D_g6k8r")
+position = Vector2(0, -13)
+shape = SubResource("CapsuleShape2D_rgyib")
 
 [node name="States" type="Node" parent="." unique_id=505325432]
 
@@ -161,3 +166,9 @@ collision_mask = 2
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1018987667]
 libraries/ = SubResource("AnimationLibrary_yllr7")
 autoplay = &"idle"
+
+[node name="OneWayPlatformShapecast" type="ShapeCast2D" parent="." unique_id=1707580292]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_boad6")
+target_position = Vector2(0, 6)
+collision_mask = 2

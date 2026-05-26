@@ -25,7 +25,7 @@ func exit() -> void:
 # Returns the state that the player should switch to (or stay in)
 func handle_input( event : InputEvent ) -> PlayerState:
 	if event.is_action_pressed("jump"):
-		if player.one_way_platform_raycast.is_colliding():
+		if player.one_way_platform_shapecast.is_colliding():
 			player.position.y += 4
 			return fall
 		return jump
