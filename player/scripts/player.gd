@@ -11,7 +11,7 @@ const DEBUG_INDICATOR = preload("uid://7s2m781vfrmb")
 #endregion
 
 #region /// Export Variables
-@export var jump_velocity : float  = -500
+@export var jump_velocity : float  = -750
 @export var air_speed_multiplier : float = 1
 @export var variable_jump_release_multiplier : float = 0.5
 @export var coyote_time : float = 0.12
@@ -33,7 +33,7 @@ var previous_state : PlayerState :
 
 #region /// standard variables
 var direction : Vector2 = Vector2.ZERO
-var gravity : float = 980
+var gravity : float = 2000
 var gravity_multiplier : float = 1.0
 #endregion
 
