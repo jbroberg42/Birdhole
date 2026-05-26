@@ -7,6 +7,7 @@ const DEBUG_INDICATOR = preload("uid://7s2m781vfrmb")
 @onready var collision_stand: CollisionShape2D = $CollisionStand
 @onready var collision_crouch: CollisionShape2D = $CollisionCrouch
 @onready var one_way_platform_raycast: RayCast2D = $OneWayPlatformRaycast
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 #endregion
 
 #region /// Export Variables
@@ -109,11 +110,16 @@ func change_state(new_state : PlayerState) -> void:
 
 
 func update_direction() -> void:
-	#var prev_direction : Vector2 = direction
-	#var x_axis = Input.get_axis("left", "right")
-	#var y_axis = Input.get_axis("jump", "down")
-	#direction = Vector2(x_axis, y_axis)
-	direction = Input.get_vector("left", "right", "up", "down")
+	var prev_direction : Vector2 = direction
+	var x_axis = Input.get_axis("left", "right")
+	var y_axis = Input.get_axis("jump", "down")
+	direction = Vector2(x_axis, y_axis)
+	
+	if prev_direction.x != direction.x:
+		if direction.x < -.5:
+			sprite_2d.flip_h = true
+		elif direction.x > .5:
+			sprite_2d.flip_h = false
 	pass
 	
 func add_debug_indicator(color : Color = Color.RED) -> void:
