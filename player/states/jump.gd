@@ -9,6 +9,7 @@ func init() -> void:
 
 # What happens when we enter this state?
 func enter() -> void:
+	player.animation_player.play("jump")
 	player.add_debug_indicator(Color.GREEN)
 	player.velocity.y = player.jump_velocity
 	
@@ -16,6 +17,7 @@ func enter() -> void:
 	# if so, change to fall state
 	if player.previous_state == fall and not Input.is_action_pressed("jump"):
 		player.change_state( fall )
+		player.animation_player.play("jump")
 	pass
 
 
